@@ -11,14 +11,29 @@
    CSS VARIABLES
 ============================ */
 :root {
+    /* Light theme (default) */
     --primary-color: #4b79a1;
     --secondary-color: #ff7f50;
     --accent-color: #283e51;
     --text-color: #333;
     --bg-color: #f9f9f9;
-    --font-heading: 'Roboto', sans-serif;
-    --font-body: 'Open Sans', sans-serif;
-    --transition-speed: 0.3s;
+    --header-bg: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    --form-bg: #fff;
+    --aside-bg: #e3e3e3;
+    --article-bg: #fff;
+}
+
+/* Dark theme */
+body.dark-theme {
+    --primary-color: #1e1e2f;
+    --secondary-color: #ff6f61;
+    --accent-color: #121212;
+    --text-color: #e0e0e0;
+    --bg-color: #121212;
+    --header-bg: linear-gradient(135deg, #1e1e2f, #121212);
+    --form-bg: #1a1a1a;
+    --aside-bg: #1f1f1f;
+    --article-bg: #1a1a1a;
 }
 
 /* ============================
@@ -30,7 +45,7 @@
    BODY & BASE STYLES
 ============================ */
 body {
-    font-family: var(--font-body);
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -41,7 +56,7 @@ body {
    HEADER / HERO SECTION
 ============================ */
 header {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: var(--header-bg);
     color: white;
     text-align: center;
     padding: 4rem 1rem;
@@ -50,7 +65,7 @@ header {
 }
 
 header h1 {
-    font-family: var(--font-heading);
+    font-family: 'Roboto', sans-serif;
     font-size: 3rem;
     margin-bottom: 0.5rem;
 }
@@ -68,7 +83,7 @@ header .cta-button {
     font-weight: bold;
     border-radius: 50px;
     text-decoration: none;
-    transition: background var(--transition-speed), transform var(--transition-speed);
+    transition: background 0.3s, transform 0.3s;
 }
 
 header .cta-button:hover {
@@ -99,7 +114,7 @@ header::before {
 ============================ */
 nav {
     background-color: var(--accent-color);
-    position: sticky; /* Sticky navigation */
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
@@ -126,7 +141,7 @@ nav {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: color var(--transition-speed);
+    transition: color 0.3s;
 }
 
 .nav-links a:hover,
@@ -173,12 +188,12 @@ section .members-grid {
 }
 
 section article {
-    background-color: white;
+    background-color: var(--article-bg);
     padding: 1rem;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     text-align: center;
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 section article:hover {
@@ -193,7 +208,6 @@ section img {
     margin-bottom: 1rem;
 }
 
-/* Use ::after for a decorative line */
 section h2::after {
     content: "";
     display: block;
@@ -208,7 +222,7 @@ section h2::after {
    ASIDE
 ============================ */
 aside {
-    background-color: #e3e3e3;
+    background-color: var(--aside-bg);
     padding: 1rem;
     border-radius: 10px;
     text-align: center;
@@ -218,7 +232,7 @@ aside {
    FORM
 ============================ */
 form {
-    background-color: #fff;
+    background-color: var(--form-bg);
     padding: 1.5rem;
     margin: 2rem 0;
     border-radius: 15px;
@@ -241,7 +255,7 @@ form button {
     font-weight: bold;
     border: none;
     cursor: pointer;
-    transition: background var(--transition-speed);
+    transition: background 0.3s;
 }
 
 form button:hover {
@@ -315,5 +329,5 @@ header, section, aside, footer {
    ADDITIONAL TRANSITIONS
 ============================ */
 a, button, section article {
-    transition: all var(--transition-speed) ease;
+    transition: all 0.3s ease;
 }
