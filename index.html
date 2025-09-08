@@ -104,12 +104,17 @@
         <form id="add-member-form">
             <p>Lägg till ny medlem:</p>
             <p>
-                <input type="text" placeholder="Namn" required>
-                <input type="text" placeholder="Stad" required>
-                <input type="text" placeholder="Framtida yrkesroll" required>
-                <input type="file" accept="image/*">
+                <input type="text" id="member-name" name="name" placeholder="Namn" required>
+                <input type="text" id="member-city" name="city" placeholder="Stad" required>
+                <input type="text" id="member-role" name="role" placeholder="Framtida yrkesroll" required>
+                <input type="file" id="member-image" name="image" accept="image/*">
             </p>
-            <p><button type="submit">Lägg till medlem</button></p>
+            <p>
+                <button type="submit" id="submit-btn">Lägg till medlem</button>
+                <div id="loading" style="display: none;">Sparar...</div>
+                <div id="success-message" style="display: none; color: green;">Medlem tillagd!</div>
+                <div id="error-message" style="display: none; color: red;"></div>
+            </p>
         </form>
 
         <!-- Headings h1 till h6 -->
@@ -127,9 +132,11 @@
         <p>© 2025 Grupp-hemsida</p>
     </footer>
 
+    <!-- Supabase JavaScript SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
     <!-- JavaScript for mobile menu -->
- 
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>
