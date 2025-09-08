@@ -1,217 +1,319 @@
-/* ===============================
-   CSS Reset (normalize)
-   =============================== */
+/* ============================
+   CSS RESET
+============================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ===============================
-   Google Fonts
-   =============================== */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-/* ===============================
-   CSS Variables (:root)
-   =============================== */
+/* ============================
+   CSS VARIABLES
+============================ */
 :root {
-    --primary-color: #4CAF50;
-    --secondary-color: #f0f0f0;
-    --accent-color: #FF5722;
+    --primary-color: #4b79a1;
+    --secondary-color: #ff7f50;
+    --accent-color: #283e51;
     --text-color: #333;
-    --font-family: 'Roboto', sans-serif;
+    --bg-color: #f9f9f9;
+    --font-heading: 'Roboto', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
     --transition-speed: 0.3s;
 }
 
-/* ===============================
-   Body and general styles
-   =============================== */
+/* ============================
+   GOOGLE FONTS
+============================ */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@700&display=swap');
+
+/* ============================
+   BODY & BASE STYLES
+============================ */
 body {
-    font-family: var(--font-family);
-    color: var(--text-color);
-    background: linear-gradient(135deg, #f9f9f9, #e0f7fa); /* background gradient */
+    font-family: var(--font-body);
     line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    scroll-behavior: smooth;
 }
 
-/* ===============================
-   Header
-   =============================== */
+/* ============================
+   HEADER / HERO SECTION
+============================ */
 header {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     color: white;
-    padding: 2rem;
     text-align: center;
+    padding: 4rem 1rem;
     position: relative;
+    overflow: hidden;
 }
 
-header::after {
+header h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+header .cta-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background var(--transition-speed), transform var(--transition-speed);
+}
+
+header .cta-button:hover {
+    background-color: #ff6347;
+    transform: translateY(-3px);
+}
+
+/* Optional pseudo-element decoration */
+header::before {
     content: "";
-    display: block;
-    height: 5px;
-    width: 50px;
-    background-color: var(--accent-color);
-    margin: 0.5rem auto 0;
-    border-radius: 3px; /* ::after decoration */
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+    animation: pulse 6s infinite;
 }
 
-/* ===============================
-   Navigation (sticky)
-   =============================== */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.2; }
+    50% { transform: scale(1.5); opacity: 0.4; }
+}
+
+/* ============================
+   NAVIGATION
+============================ */
 nav {
-    background-color: white;
-    padding: 1rem;
-    position: sticky;
+    background-color: var(--accent-color);
+    position: sticky; /* Sticky navigation */
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    text-align: center;
 }
 
-nav p {
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
     font-weight: bold;
-}
-
-/* Hover effect for nav */
-nav p:hover {
-    color: var(--accent-color);
-    cursor: pointer;
     transition: color var(--transition-speed);
 }
 
-/* ===============================
-   Main content
-   =============================== */
+.nav-links a:hover,
+.nav-links a:focus {
+    color: var(--secondary-color);
+}
+
+/* Hamburger menu for mobile */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: white;
+}
+
+/* ============================
+   MAIN CONTENT
+============================ */
 main {
     max-width: 1200px;
     margin: 2rem auto;
-    padding: 1rem;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
 }
 
-/* Section and Article styling */
+/* ============================
+   MEMBERS SECTION / CARD LAYOUT
+============================ */
 section {
-    margin-bottom: 3rem;
+    grid-column: 1 / 2;
 }
 
-article {
+section h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+section .members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+section article {
     background-color: white;
     padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed); /* transition */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-/* Hover effect on article */
-article:hover {
+section article:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
 
-/* Article image */
-article img {
-    display: block;
-    margin: 0 auto 1rem;
-    border-radius: 50%;
+section img {
     width: 150px;
     height: 150px;
-    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
 }
 
-/* Pseudoclass example */
-article:nth-child(odd) {
-    background-color: #f9f9f9;
-}
-
-/* Aside styling */
-aside {
+/* Use ::after for a decorative line */
+section h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
     background-color: var(--secondary-color);
-    padding: 1rem;
-    margin: 2rem 0;
-    border-left: 5px solid var(--accent-color);
+    margin: 0.5rem auto 1rem auto;
+    border-radius: 2px;
 }
 
-/* Form styling */
-form {
-    background-color: white;
+/* ============================
+   ASIDE
+============================ */
+aside {
+    background-color: #e3e3e3;
     padding: 1rem;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
-form input[type="text"],
-form input[type="file"] {
+/* ============================
+   FORM
+============================ */
+form {
+    background-color: #fff;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+form input,
+form button {
     padding: 0.5rem;
-    margin: 0.5rem 0;
-    width: 100%;
-    border: 1px solid #ccc;
     border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 form button {
     background-color: var(--primary-color);
     color: white;
+    font-weight: bold;
     border: none;
-    padding: 0.7rem 1.5rem;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color var(--transition-speed);
+    transition: background var(--transition-speed);
 }
 
 form button:hover {
     background-color: var(--accent-color);
 }
 
-/* Headings hierarchy */
-h1 { font-size: 2.5rem; margin: 1rem 0; }
-h2 { font-size: 2rem; margin: 1rem 0; }
-h3 { font-size: 1.75rem; margin: 1rem 0; }
-h4 { font-size: 1.5rem; margin: 1rem 0; }
-h5 { font-size: 1.25rem; margin: 0.8rem 0; }
-h6 { font-size: 1rem; margin: 0.5rem 0; }
-
-/* ===============================
-   Footer
-   =============================== */
+/* ============================
+   FOOTER
+============================ */
 footer {
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     color: white;
-    padding: 1rem;
     text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
 }
 
-/* ===============================
-   Scroll effects (fade in animation)
-   =============================== */
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(20px);}
-    100% { opacity: 1; transform: translateY(0);}
-}
-
-article, section, aside, form {
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-/* ===============================
-   Responsive design
-   =============================== */
-@media (max-width: 768px) {
+/* ============================
+   MOBILE / MEDIA QUERIES
+============================ */
+@media (max-width: 1024px) {
     main {
-        padding: 0.5rem;
-    }
-
-    article img {
-        width: 100px;
-        height: 100px;
+        grid-template-columns: 1fr;
     }
 }
 
-@media (max-width: 480px) {
-    nav p {
-        font-size: 0.9rem;
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
     }
 
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.75rem; }
-    h3 { font-size: 1.5rem; }
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--accent-color);
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .nav-links.active {
+        max-height: 300px;
+    }
+}
+
+/* ============================
+   SCROLL EFFECTS
+============================ */
+header, section, aside, footer {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================
+   ADDITIONAL TRANSITIONS
+============================ */
+a, button, section article {
+    transition: all var(--transition-speed) ease;
 }

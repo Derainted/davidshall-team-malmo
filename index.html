@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
 
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <title>Grupp-hemsida</title>
 </head>
 <body>
@@ -13,11 +19,28 @@
     <header>
         <h1>Vår Grupp</h1>
         <p>Här hittar du information om alla medlemmar i vår grupp.</p>
+        <!-- CTA Button -->
+        <a href="#contact" class="cta-button"><i class="fas fa-envelope"></i> Kontakta oss</a>
     </header>
 
     <!-- Navigation -->
     <nav>
-        <p>Meny: Hem | Medlemmar | Kontakt</p>
+        <div class="nav-container">
+            <div class="logo">
+                <h2>Vår Grupp</h2>
+            </div>
+
+            <!-- Mobile menu toggle -->
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Hem</a></li>
+                <li><a href="members.html">Medlemmar</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Main content -->
@@ -29,46 +52,47 @@
             <h2>Medlemmar</h2>
             <p>Här presenteras varje medlem med namn, bild, stad och framtida yrkesroll.</p>
 
-            <!-- Member 1 -->
-            <article>
-                <h3>Idris</h3>
-                <img src="eddy.jpg" alt="Bild på Eddy" width="150">
-                <p>Stad: Malmö</p>
-                <p>Framtida yrkesroll: Fullstack JavaScript-utvecklare</p>
-            </article>
+            <div class="members-grid">
+                <!-- Member 1 -->
+                <article>
+                    <h3>Idris</h3>
+                    <img src="eddy.jpg" alt="Bild på Eddy" width="150">
+                    <p>Stad: Malmö</p>
+                    <p>Framtida yrkesroll: Fullstack JavaScript-utvecklare</p>
+                </article>
 
-            <!-- Member 2 -->
-            <article>
-                <h3>Johannes</h3>
-                <img src="albin.jpg" alt="Bild på Albin" width="150">
-                <p>Stad: Malmö</p>
-                <p>Framtida yrkesroll: Frontend-utvecklare</p>
-            </article>
+                <!-- Member 2 -->
+                <article>
+                    <h3>Johannes</h3>
+                    <img src="albin.jpg" alt="Bild på Albin" width="150">
+                    <p>Stad: Malmö</p>
+                    <p>Framtida yrkesroll: Frontend-utvecklare</p>
+                </article>
 
-            <!-- Member 3 -->
-            <article>
-                <h3>Mattias</h3>
-                <img src="lisa.jpg" alt="Bild på Lisa" width="150">
-                <p>Stad: Malmö</p>
-                <p>Framtida yrkesroll: UX/UI-designer</p>
-            </article>
+                <!-- Member 3 -->
+                <article>
+                    <h3>Mattias</h3>
+                    <img src="lisa.jpg" alt="Bild på Lisa" width="150">
+                    <p>Stad: Malmö</p>
+                    <p>Framtida yrkesroll: UX/UI-designer</p>
+                </article>
 
-            <!-- Member 4 -->
-            <article>
-                <h3>Benjame</h3>
-                <img src="marcus.jpg" alt="Bild på Marcus" width="150">
-                <p>Stad: Malmö</p>
-                <p>Framtida yrkesroll: Backend-utvecklare</p>
-            </article>
+                <!-- Member 4 -->
+                <article>
+                    <h3>Benjame</h3>
+                    <img src="marcus.jpg" alt="Bild på Marcus" width="150">
+                    <p>Stad: Malmö</p>
+                    <p>Framtida yrkesroll: Backend-utvecklare</p>
+                </article>
 
-            <!-- Member 5 -->
-            <article>
-                <h3>Emelie</h3>
-                <img src="sofia.jpg" alt="Bild på Sofia" width="150">
-                <p>Stad: Malmö</p>
-                <p>Framtida yrkesroll: Frontend-utvecklare</p>
-            </article>
-
+                <!-- Member 5 -->
+                <article>
+                    <h3>Emelie</h3>
+                    <img src="sofia.jpg" alt="Bild på Sofia" width="150">
+                    <p>Stad: Malmö</p>
+                    <p>Framtida yrkesroll: Frontend-utvecklare</p>
+                </article>
+            </div>
         </section>
 
         <!-- Aside -->
@@ -77,12 +101,12 @@
         </aside>
 
         <!-- Form to add new member -->
-        <form>
+        <form id="add-member-form">
             <p>Lägg till ny medlem:</p>
             <p>
-                <input type="text" placeholder="Namn">
-                <input type="text" placeholder="Stad">
-                <input type="text" placeholder="Framtida yrkesroll">
+                <input type="text" placeholder="Namn" required>
+                <input type="text" placeholder="Stad" required>
+                <input type="text" placeholder="Framtida yrkesroll" required>
                 <input type="file" accept="image/*">
             </p>
             <p><button type="submit">Lägg till medlem</button></p>
@@ -102,6 +126,10 @@
     <footer>
         <p>© 2025 Grupp-hemsida</p>
     </footer>
+
+    <!-- JavaScript for mobile menu -->
+ 
+<script src="js/script.js"></script>
 
 </body>
 </html>
