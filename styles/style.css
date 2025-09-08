@@ -195,6 +195,8 @@ article, section, aside, form {
 /* ===============================
    Responsive design
    =============================== */
+
+/* For tablets */
 @media (max-width: 768px) {
     main {
         padding: 0.5rem;
@@ -205,7 +207,7 @@ article, section, aside, form {
         height: 100px;
     }
 }
-
+/* For mobile devices */ 
 @media (max-width: 480px) {
     nav p {
         font-size: 0.9rem;
