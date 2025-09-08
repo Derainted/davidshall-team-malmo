@@ -8,7 +8,10 @@
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- FontAwesome CDN -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <title>Grupp-hemsida</title>
@@ -19,12 +22,15 @@
     <header>
         <h1>Vår Grupp</h1>
         <p>Här hittar du information om alla medlemmar i vår grupp.</p>
-        <!-- CTA Button -->
         <a href="#contact" class="cta-button"><i class="fas fa-envelope"></i> Kontakta oss</a>
     </header>
 
     <!-- Navigation -->
     <nav>
+        <button id="theme-toggle" class="cta-button">
+    <i class="fas fa-moon"></i> Dark Mode
+</button>
+
         <div class="nav-container">
             <div class="logo">
                 <h2>Vår Grupp</h2>
@@ -47,48 +53,41 @@
     <main>
         <p>Gruppen består av fem medlemmar med olika kompetenser och framtida yrkesroller.</p>
 
-        <!-- Section for Members -->
+        <!-- Members Section -->
         <section>
             <h2>Medlemmar</h2>
-            <p>Här presenteras varje medlem med namn, bild, stad och framtida yrkesroll.</p>
-
             <div class="members-grid">
-                <!-- Member 1 -->
                 <article>
                     <h3>Idris</h3>
-                    <img src="eddy.jpg" alt="Bild på Eddy" width="150">
+                    <img src="https://picsum.photos/150/150?random=1" alt="Idris">
                     <p>Stad: Malmö</p>
                     <p>Framtida yrkesroll: Fullstack JavaScript-utvecklare</p>
                 </article>
 
-                <!-- Member 2 -->
                 <article>
                     <h3>Johannes</h3>
-                    <img src="albin.jpg" alt="Bild på Albin" width="150">
+                    <img src="https://picsum.photos/150/150?random=2" alt="Johannes">
                     <p>Stad: Malmö</p>
                     <p>Framtida yrkesroll: Frontend-utvecklare</p>
                 </article>
 
-                <!-- Member 3 -->
                 <article>
                     <h3>Mattias</h3>
-                    <img src="lisa.jpg" alt="Bild på Lisa" width="150">
+                    <img src="https://picsum.photos/150/150?random=3" alt="Mattias">
                     <p>Stad: Malmö</p>
                     <p>Framtida yrkesroll: UX/UI-designer</p>
                 </article>
 
-                <!-- Member 4 -->
                 <article>
                     <h3>Benjame</h3>
-                    <img src="marcus.jpg" alt="Bild på Marcus" width="150">
+                    <img src="https://picsum.photos/150/150?random=4" alt="Benjame">
                     <p>Stad: Malmö</p>
                     <p>Framtida yrkesroll: Backend-utvecklare</p>
                 </article>
 
-                <!-- Member 5 -->
                 <article>
                     <h3>Emelie</h3>
-                    <img src="sofia.jpg" alt="Bild på Sofia" width="150">
+                    <img src="https://picsum.photos/150/150?random=5" alt="Emelie">
                     <p>Stad: Malmö</p>
                     <p>Framtida yrkesroll: Frontend-utvecklare</p>
                 </article>
@@ -100,26 +99,15 @@
             <p>Tips: Klicka på varje medlem för mer information.</p>
         </aside>
 
-        <!-- Form to add new member -->
+        <!-- Form -->
         <form id="add-member-form">
             <p>Lägg till ny medlem:</p>
-            <p>
-                <input type="text" placeholder="Namn" required>
-                <input type="text" placeholder="Stad" required>
-                <input type="text" placeholder="Framtida yrkesroll" required>
-                <input type="file" accept="image/*">
-            </p>
-            <p><button type="submit">Lägg till medlem</button></p>
+            <input type="text" placeholder="Namn" required>
+            <input type="text" placeholder="Stad" required>
+            <input type="text" placeholder="Framtida yrkesroll" required>
+            <input type="file" accept="image/*">
+            <button type="submit">Lägg till medlem</button>
         </form>
-
-        <!-- Headings h1 till h6 -->
-        <h1>Huvudrubrik</h1>
-        <h2>Sektionstitel</h2>
-        <h3>Artikeltitel</h3>
-        <h4>Underrubrik</h4>
-        <h5>Mindre rubrik</h5>
-        <h6>Minsta rubrik</h6>
-
     </main>
 
     <!-- Footer -->
@@ -127,9 +115,8 @@
         <p>© 2025 Grupp-hemsida</p>
     </footer>
 
-    <!-- JavaScript for mobile menu -->
- 
-<script src="js/script.js"></script>
+    <!-- JS for mobile menu -->
+      <script src="js/script.js"></script>
 
 </body>
 </html>
