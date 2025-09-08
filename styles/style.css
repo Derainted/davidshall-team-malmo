@@ -1,0 +1,217 @@
+/* ===============================
+   CSS Reset (normalize)
+   =============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===============================
+   Google Fonts
+   =============================== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* ===============================
+   CSS Variables (:root)
+   =============================== */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #f0f0f0;
+    --accent-color: #FF5722;
+    --text-color: #333;
+    --font-family: 'Roboto', sans-serif;
+    --transition-speed: 0.3s;
+}
+
+/* ===============================
+   Body and general styles
+   =============================== */
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background: linear-gradient(135deg, #f9f9f9, #e0f7fa); /* background gradient */
+    line-height: 1.6;
+}
+
+/* ===============================
+   Header
+   =============================== */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+header::after {
+    content: "";
+    display: block;
+    height: 5px;
+    width: 50px;
+    background-color: var(--accent-color);
+    margin: 0.5rem auto 0;
+    border-radius: 3px; /* ::after decoration */
+}
+
+/* ===============================
+   Navigation (sticky)
+   =============================== */
+nav {
+    background-color: white;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+nav p {
+    font-weight: bold;
+}
+
+/* Hover effect for nav */
+nav p:hover {
+    color: var(--accent-color);
+    cursor: pointer;
+    transition: color var(--transition-speed);
+}
+
+/* ===============================
+   Main content
+   =============================== */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Section and Article styling */
+section {
+    margin-bottom: 3rem;
+}
+
+article {
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed); /* transition */
+}
+
+/* Hover effect on article */
+article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Article image */
+article img {
+    display: block;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Pseudoclass example */
+article:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Aside styling */
+aside {
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    margin: 2rem 0;
+    border-left: 5px solid var(--accent-color);
+}
+
+/* Form styling */
+form {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+form input[type="text"],
+form input[type="file"] {
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+form button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Headings hierarchy */
+h1 { font-size: 2.5rem; margin: 1rem 0; }
+h2 { font-size: 2rem; margin: 1rem 0; }
+h3 { font-size: 1.75rem; margin: 1rem 0; }
+h4 { font-size: 1.5rem; margin: 1rem 0; }
+h5 { font-size: 1.25rem; margin: 0.8rem 0; }
+h6 { font-size: 1rem; margin: 0.5rem 0; }
+
+/* ===============================
+   Footer
+   =============================== */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* ===============================
+   Scroll effects (fade in animation)
+   =============================== */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+
+article, section, aside, form {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* ===============================
+   Responsive design
+   =============================== */
+@media (max-width: 768px) {
+    main {
+        padding: 0.5rem;
+    }
+
+    article img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav p {
+        font-size: 0.9rem;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+}
