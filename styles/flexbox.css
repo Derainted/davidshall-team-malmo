@@ -1,0 +1,38 @@
+.flex-container {
+    display: flex;              
+    justify-content: space-around;
+    flex-wrap: wrap;             
+    max-width: 90%;              
+    margin: 0 auto;             
+    gap: 20px;                   
+    padding: 20px;
+}
+
+.flex-box {
+    background-color: #333;   
+    /*color: white;*/                
+    flex: 1 1 calc(25% - 40px);  
+    padding: 50px;               
+    text-align: center;          
+    border-radius: 10px;         
+    box-shadow: 0 4px 8px rgba(255, 4, 4, 0.2);  
+    font-size: 18px;             
+    transition: 0.3s; 
+}
+
+.flex-box:hover {
+    transform: scale(1.05);      
+}
+
+/* Bara EN media query per breakpoint */
+@media (max-width: 768px) {
+    .flex-box {
+        flex: 1 1 calc(50% - 40px);  /* 2 kolumner på tablets */
+    }
+}
+
+@media (max-width: 500px) {
+    .flex-box {
+        flex: 1 1 100%;              /* 1 kolumn på mobiler */
+    }
+}
